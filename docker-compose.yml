@@ -1,0 +1,75 @@
+services:
+  external-api-example:
+    build:
+      context: ./services/external-api-example
+    ports:
+      - "8080:8080"
+    environment:
+      SEED_MOCK_API_PATH: /app/scripts/seed_mock_api.json
+    volumes:
+      - ./scripts/seed_mock_api.json:/app/scripts/seed_mock_api.json:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: marketplace_source
+      MYSQL_USER: source
+      MYSQL_PASSWORD: source
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./scripts/seed_mysql.sql:/docker-entrypoint-initdb.d/seed.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+
+  postgres:
+    image: postgres:16
+    env_file:
+      - .env.example
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+
+  etl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env.example
+    depends_on:
+      external-api-example:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    command: bash scripts/run_e2e.sh

@@ -1,0 +1,106 @@
+{
+  "orders": {
+    "seller_a": [
+      {
+        "order_id": "ord-1001",
+        "seller_id": "seller_a",
+        "date": "2024-06-01",
+        "status": "PAID",
+        "total_amount": "1,234.50",
+        "customer_state": "SP",
+        "customer_city": "Sao Paulo",
+        "coupon_name": "",
+        "legacy_field": "ignore-me",
+        "payments": [
+          {"order_id": "ord-1001", "payment_id": "pay-1", "paymentMethod": "credit_card", "amount": "1234.50", "paid_at": "2024-06-01"},
+          {"order_id": "ord-1001", "payment_id": "pay-1", "method": "credit_card", "amount": "1234.50", "paid_at": "2024-06-01"}
+        ]
+      },
+      {
+        "order_id": "ord-1002",
+        "seller_id": "seller_a",
+        "date": "2024-06-15",
+        "status": "paid",
+        "total_amount": 250.0,
+        "customer_state": "RJ",
+        "customer_city": "Rio de Janeiro",
+        "payments": [
+          {"order_id": "ord-1002", "payment_id": "pay-2", "method": "pix", "amount": 250.0, "paid_at": "2024-06-15"}
+        ]
+      },
+      {
+        "order_id": "ord-1003",
+        "seller_id": "seller_a",
+        "date": "2024-07-05",
+        "status": "PAID",
+        "total_amount": 610.0,
+        "customer_state": "SP",
+        "customer_city": "Campinas",
+        "payments": [
+          {"order_id": "ord-1003", "payment_id": "pay-3", "method": "credit_card", "amount": 610.0, "paid_at": "2024-07-05"}
+        ]
+      },
+      {
+        "order_id": "ord-1004",
+        "seller_id": "seller_a",
+        "date": "2024-07-20",
+        "status": "paid",
+        "total_amount": 89.9,
+        "customer_state": "SP",
+        "customer_city": "Sao Paulo",
+        "payments": [
+          {"order_id": "ord-1004", "payment_id": "pay-4", "method": "pix", "amount": 89.9, "paid_at": "2024-07-20"}
+        ]
+      }
+    ],
+    "seller_b": [
+      {
+        "order_id": "ord-2001",
+        "seller_id": "seller_b",
+        "date": "2024-06-10",
+        "status": "pending",
+        "total_amount": "89,90",
+        "customer_state": "MG",
+        "customer_city": "Belo Horizonte",
+        "payments": []
+      },
+      {
+        "order_id": "ord-2002",
+        "seller_id": "seller_b",
+        "date": "2024-07-12",
+        "status": "paid",
+        "total_amount": 320.5,
+        "customer_state": "MG",
+        "customer_city": "Uberlandia",
+        "payments": [
+          {"order_id": "ord-2002", "payment_id": "pay-5", "method": "credit_card", "amount": 320.5, "paid_at": "2024-07-12"}
+        ]
+      }
+    ]
+  },
+  "traffic": {
+    "seller_a": [
+      {"seller_id": "seller_a", "date": "2024-06-01", "source": "Google / CPC", "medium": "cpc", "sessions": null, "users": 80, "pageviews": 320},
+      {"seller_id": "seller_a", "date": "2024-06-15", "source": "direct", "medium": "(none)", "sessions": 120, "users": 95, "pageviews": 410},
+      {"seller_id": "seller_a", "date": "2024-07-05", "source": "Google / CPC", "medium": "cpc", "sessions": 150, "users": 110, "pageviews": 480},
+      {"seller_id": "seller_a", "date": "2024-07-20", "source": "direct", "medium": "(none)", "sessions": 95, "users": 70, "pageviews": 300}
+    ],
+    "seller_b": [
+      {"seller_id": "seller_b", "date": "2024-06-10", "source": "facebook / paid", "medium": "social", "sessions": 45, "users": 40, "pageviews": 90},
+      {"seller_id": "seller_b", "date": "2024-07-12", "source": "facebook / paid", "medium": "social", "sessions": 60, "users": 52, "pageviews": 140}
+    ]
+  },
+  "products": {
+    "seller_a": [
+      {"seller_id": "seller_a", "product_id": "prod-1", "product_sku_id": "sku-1", "date": "2024-06-01", "product_category_name": "Electronics", "product_sub_category_name": "Phones", "product_department_name": "Mobile", "product_brand": "Acme", "product_price": "999.90", "product_sold_quantity": "10", "product_stock_quantity": 50, "product_stock_reserved_quantity": 5, "product_stock_coverage_days": 12},
+      {"seller_id": "seller_a", "product_id": "prod-2", "product_sku_id": "sku-2", "date": "2024-06-01", "product_category_name": "Home", "product_sub_category_name": "Kitchen", "product_department_name": "Appliances", "product_brand": "Beta", "product_price": "450,00", "product_sold_quantity": "3", "product_stock_quantity": 20, "product_stock_reserved_quantity": 2, "product_stock_coverage_days": null},
+      {"seller_id": "seller_a", "product_id": "prod-3", "product_sku_id": "sku-3", "date": "2024-06-01", "product_category_name": "Sports", "product_sub_category_name": null, "product_department_name": null, "product_brand": "Gamma", "product_price": "120.00", "product_sold_quantity": null, "product_stock_quantity": 15, "product_stock_reserved_quantity": 1, "product_stock_coverage_days": 8},
+      {"seller_id": "seller_a", "product_id": "prod-1", "product_sku_id": "sku-1", "date": "2024-07-05", "product_category_name": "Electronics", "product_sub_category_name": "Phones", "product_department_name": "Mobile", "product_brand": "Acme", "product_price": "979.90", "product_sold_quantity": "14", "product_stock_quantity": 42, "product_stock_reserved_quantity": 4, "product_stock_coverage_days": 9},
+      {"seller_id": "seller_a", "product_id": "prod-4", "product_sku_id": "sku-4", "date": "2024-07-20", "product_category_name": "Home", "product_sub_category_name": "Kitchen", "product_department_name": "Appliances", "product_brand": "Beta", "product_price": "210,00", "product_sold_quantity": "6", "product_stock_quantity": 12, "product_stock_reserved_quantity": 1, "product_stock_coverage_days": 7}
+    ],
+    "seller_b": [
+      {"seller_id": "seller_b", "product_id": "prod-9", "product_sku_id": "sku-9", "date": "2024-06-10", "product_category_name": "Fashion", "product_sub_category_name": "Shoes", "product_department_name": "Footwear", "product_brand": "Delta", "product_price": "199.00", "product_sold_quantity": "5", "product_stock_quantity": 30, "product_stock_reserved_quantity": 3, "product_stock_coverage_days": 10},
+      {"seller_id": "seller_b", "product_id": "prod-9", "product_sku_id": "sku-9", "date": "2024-07-12", "product_category_name": "Fashion", "product_sub_category_name": "Shoes", "product_department_name": "Footwear", "product_brand": "Delta", "product_price": "189.00", "product_sold_quantity": "8", "product_stock_quantity": 22, "product_stock_reserved_quantity": 2, "product_stock_coverage_days": 6}
+    ]
+  }
+}

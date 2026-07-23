@@ -1,0 +1,29 @@
+[project]
+name = "showcase-etl-workspace"
+version = "0.1.0"
+description = "Showcase ETL monorepo"
+requires-python = ">=3.13.0,<3.14.0"
+license = "MIT"
+
+[tool.uv.workspace]
+members = ["packages/etl", "apps/etl-usage-example", "services/external-api-example"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "import-linter>=2.1",
+]
+
+[tool.importlinter]
+root_packages = ["etl_core", "my_marketplace_etl"]
+
+[[tool.importlinter.contracts]]
+name = "etl must not import app"
+type = "forbidden"
+source_modules = ["etl_core"]
+forbidden_modules = ["my_marketplace_etl"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

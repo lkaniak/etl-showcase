@@ -1,0 +1,9 @@
+from typing import Any, Protocol
+
+
+class LogSink(Protocol):
+    def info(self, message: str, **context: Any) -> None: ...
+
+    def error(self, message: str, **context: Any) -> None: ...
+
+    def success(self, message: str, **context: Any) -> None: ...
